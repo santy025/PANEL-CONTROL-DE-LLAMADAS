@@ -400,6 +400,22 @@
   .chero-r{flex:none}
   .csec{font-size:16px;font-weight:800;margin:20px 0 12px;display:flex;align-items:center;gap:9px}
   .csec::before{content:"";width:4px;height:16px;background:var(--teal-deep);border-radius:3px}
+  @media(min-width:700px){.overlay{align-items:center}.overlay > .modal{border-radius:20px;margin:16px auto}.mhead .grab{display:none}}
+  .opt.good{border-color:#bfe6d1;color:var(--ok)}
+  .khint{font-size:12px;color:var(--faint);font-weight:600;margin-top:14px;text-align:center}
+  .khint b{color:var(--muted);font-weight:800;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+  .segmented button .navi{display:inline-flex;flex:none}
+  @media(max-width:880px){.segmented button .navi{display:none}}
+  .guide{padding:4px 22px 8px}
+  .gstep{display:flex;gap:13px;padding:13px 0;border-top:1px solid var(--line)}
+  .gstep:first-child{border-top:none}
+  .gnum{width:28px;height:28px;border-radius:9px;background:var(--teal);color:var(--btn-text);font-weight:800;display:grid;place-items:center;flex:none;font-size:14px}
+  .gstep h5{font-size:15px;font-weight:800;margin:0 0 3px}
+  .gstep p{font-size:13.5px;color:var(--muted);margin:0}
+  .gcaus{margin-top:9px;display:flex;flex-direction:column;gap:7px}
+  .gcaus .gc{font-size:13px;line-height:1.4} .gcaus .gc b{color:var(--ink)}
+  .gkeys{margin-top:6px;font-size:13px;color:var(--muted)} .gkeys b{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-weight:800;color:var(--muted)}
+  .gnote{background:var(--teal-wash);border:1px solid #bfe6d1;border-radius:12px;padding:12px 14px;margin:12px 0 0;font-size:13.5px;font-weight:600;color:var(--teal-ink)}
   @media(max-width:560px){.chero{justify-content:center;text-align:center}.chero-l{flex-direction:column;text-align:center}}
 </style>
 </head>
@@ -442,16 +458,17 @@
   <div class="bar">
     <div class="brand"><div class="mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.5 3.5C5 3.5 3.8 4.7 4 6.2c.7 6 5.6 10.9 11.6 11.6 1.5.2 2.7-1 2.7-2.5v-1.7c0-.9-.6-1.7-1.5-1.9l-2-.5c-.8-.2-1.6.1-2 .8-1.6-.9-2.9-2.2-3.8-3.8.7-.4 1-1.2.8-2l-.5-2C9.6 3.1 8.8 2.5 7.9 2.5H6.5Z" fill="#08302C"/></svg></div><div><h1>Seguimiento de llamadas</h1><span>CIN · job&talent</span></div></div>
     <nav class="segmented" role="tablist">
-      <button role="tab" data-view="llamadas" aria-selected="true">Cola <span class="dot tnum" id="navCallCount" style="display:none">0</span></button>
-      <button role="tab" data-view="avance" data-role="caller" aria-selected="false">Mi avance</button>
-      <button role="tab" data-view="control" data-role="admin" aria-selected="false">Tablero</button>
-      <button role="tab" data-view="cargar" data-role="admin" aria-selected="false">Cargar base</button>
-      <button role="tab" data-view="usuarios" data-role="admin" aria-selected="false">Usuarios</button>
+      <button role="tab" data-view="llamadas" aria-selected="true"><span class="navi"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 3.5C5 3.5 3.8 4.7 4 6.2c.7 6 5.6 10.9 11.6 11.6 1.5.2 2.7-1 2.7-2.5v-1.7c0-.9-.6-1.7-1.5-1.9l-2-.5c-.8-.2-1.6.1-2 .8-1.6-.9-2.9-2.2-3.8-3.8.7-.4 1-1.2.8-2l-.5-2C9.6 3.1 8.8 2.5 7.9 2.5H6.5Z"/></svg></span>Cola <span class="dot tnum" id="navCallCount" style="display:none">0</span></button>
+      <button role="tab" data-view="avance" data-role="caller" aria-selected="false"><span class="navi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Mi avance</button>
+      <button role="tab" data-view="control" data-role="admin" aria-selected="false"><span class="navi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>Tablero</button>
+      <button role="tab" data-view="cargar" data-role="admin" aria-selected="false"><span class="navi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5-5 5 5"/><path d="M12 5v13"/></svg></span>Cargar base</button>
+      <button role="tab" data-view="usuarios" data-role="admin" aria-selected="false"><span class="navi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span>Usuarios</button>
     </nav>
     <div class="topright">
       <div class="userbox"><div class="u"><b id="uName">—</b><span class="rolebadge" id="uRole">—</span></div><button class="logout" id="btnLogout" title="Cerrar sesión"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg></button></div>
       <span class="cloudbadge" id="cloudBadge" style="display:none"></span>
       <div class="clock" id="clock"><b class="tnum" id="clockTime">--:--</b><small id="clockLbl">hora real</small></div>
+      <button class="iconbtn" id="btnHelp" title="Guía para llamar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .8-1 1.7" stroke-linecap="round"/><path d="M12 17h.01" stroke-linecap="round"/></svg></button>
       <button class="iconbtn" id="btnSettings" data-role="admin" title="Ajustes"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1Z"/></svg></button>
     </div>
   </div>
@@ -519,6 +536,7 @@
       <input type="text" id="otroInput" class="otro-input" placeholder="Escribe cuál es la otra causal" maxlength="80" style="display:none">
     </div>
     <textarea class="mnote" id="regNote" placeholder="Nota (opcional): qué te dijo, a qué hora entra, etc."></textarea>
+    <div class="khint">Atajos: <b>1</b>–<b>5</b> para elegir · <b>Enter</b> para guardar · <b>Esc</b> para cerrar</div>
   </div>
   <div class="mfoot"><button class="btn-ghost" id="regCancel">Cancelar</button><button class="btn-primary" id="regSave" disabled>Guardar llamada</button></div>
 </div></div>
@@ -534,6 +552,39 @@
   <div class="setgroup"><h4>Simular hora <span style="font-weight:600;color:var(--muted);font-size:13px">(pruebas)</span></h4><div class="hint">Prueba la cola a otra hora para ver cómo se llena durante el día.</div><div class="field"><label class="switch"><input type="checkbox" id="setSimOn"><span class="slider"></span></label><input type="time" id="setSimTime" disabled></div></div>
   <div class="setgroup danger"><h4>Zona de datos</h4><div class="hint">Todo se guarda en este navegador. Para varias personas en simultáneo con datos centralizados, se conecta la nube.</div><button id="clearLogs">Borrar registros</button><button id="clearAll">Borrar datos</button></div>
   <div class="mfoot"><button class="btn-primary" id="setClose" style="flex:1">Listo</button></div>
+</div></div>
+
+<div class="overlay center" id="helpOverlay"><div class="modal">
+  <div class="mhead"><div class="grab"></div><div class="mname">📞 Guía para llamar</div><div class="msub">Paso a paso para registrar cada llamada</div></div>
+  <div class="mbody guide">
+    <div class="gstep"><div class="gnum">1</div><div><h5>Mira a quién llamar</h5><p>En <b>Cola de llamadas</b> aparecen las personas que no han registrado su ingreso al punto en su horario. Cada tarjeta muestra el nombre, el punto (PDV), la hora de ingreso y el <b>teléfono en un recuadro verde</b>. Tip: pon el filtro en <b>“Con teléfono”</b> para atender solo a quienes tienen número.</p></div></div>
+    <div class="gstep"><div class="gnum">2</div><div><h5>Llama</h5><p>Toca el <b>recuadro verde con el número</b> para marcar (o márcalo en tu teléfono).</p></div></div>
+    <div class="gstep"><div class="gnum">3</div><div><h5>Registra qué pasó</h5><p>Al colgar, toca <b>“Registrar”</b> y elige el resultado:</p>
+      <div class="gcaus">
+        <div class="gc"><span class="tag ok">Contestó</span> la persona te respondió.</div>
+        <div class="gc"><span class="tag no">No contestó</span> sonó pero no respondió.</div>
+        <div class="gc"><span class="tag no">Buzón de voz</span> entró al buzón.</div>
+        <div class="gc"><span class="tag no">Apagado / fuera</span> apagado o sin cobertura.</div>
+        <div class="gc"><span class="tag no">Número equivocado</span> el número no es de esa persona.</div>
+      </div></div></div>
+    <div class="gstep"><div class="gnum">4</div><div><h5>Si CONTESTÓ, elige la causal</h5><p>Es el motivo de por qué no ha registrado el ingreso:</p>
+      <div class="gcaus">
+        <div class="gc"><b>Ya ingresó, no marcó:</b> sí está en el punto pero olvidó registrar. Pídele que registre ya.</div>
+        <div class="gc"><b>Va en camino / tarde:</b> viene en camino, llegará tarde.</div>
+        <div class="gc"><b>Problema con la app:</b> no le carga o no le deja registrar.</div>
+        <div class="gc"><b>Sin señal o datos:</b> no tiene internet en el punto.</div>
+        <div class="gc"><b>Novedad (permiso/incap.):</b> permiso, incapacidad, cita, calamidad, etc.</div>
+        <div class="gc"><b>No le corresponde:</b> ese punto no es de ella o no estaba asignada.</div>
+        <div class="gc"><b>No se presentará:</b> no irá hoy.</div>
+        <div class="gc"><b>Otro:</b> escribe la causal en el campo que aparece.</div>
+      </div></div></div>
+    <div class="gstep"><div class="gnum">5</div><div><h5>Escribe una nota (opcional)</h5><p>Algo útil: a qué hora entra, qué dijo, si hay que volver a llamar, etc.</p></div></div>
+    <div class="gstep"><div class="gnum">6</div><div><h5>Guarda</h5><p>Toca <b>“Guardar llamada”</b> (o <b>Enter</b>). La persona sale de tu cola y queda registrada con la hora exacta.</p>
+      <div class="gkeys">Atajos en portátil: <b>1</b>–<b>5</b> eligen el resultado · <b>Enter</b> guarda · <b>Esc</b> cierra.</div></div></div>
+    <div class="gstep"><div class="gnum">7</div><div><h5>Revisa tu avance</h5><p>En <b>“Mi avance”</b> ves cuántas llevas y cuántas te faltan por cliente. La meta es dejar todo en <b>100%</b> cada día (¡cae confeti! 🎉).</p></div></div>
+    <div class="gnote">El objetivo: garantizar que cada persona registre su ingreso a su punto en su horario. Tu gestión y tus notas le dicen a la operación y a marketing qué pasó con cada punto.</div>
+  </div>
+  <div class="mfoot"><button class="btn-primary" id="helpClose" style="flex:1">Entendido, ¡a llamar!</button></div>
 </div></div>
 
 <div id="toast"></div>
@@ -643,6 +694,7 @@ function showApp(){
   if(!admin){$("#colaTitle").textContent="Mis llamadas";$("#colaDesc").textContent="Estas personas no han registrado ingreso a su punto en su horario. Llámalas y deja el registro de cada llamada.";}
   else{$("#colaTitle").textContent="Cola de llamadas";}
   tickClock();renderAll();setView("llamadas");
+  if(u.role!=="admin"){try{if(!localStorage.getItem(SK+"_help")){$("#helpOverlay").classList.add("show");localStorage.setItem(SK+"_help","1");}}catch(_){}}
 }
 
 /* ============================================================ RENDER helpers */
@@ -929,6 +981,9 @@ function bind(){
   $("#telSel").addEventListener("change",e=>{state.settings.telFilter=e.target.value;save();renderLlamadas();});
   $("#ctrlDateSel").addEventListener("change",e=>{state.ctrlDate=e.target.value;save();renderControl();});
   $("#btnSettings").addEventListener("click",openSettings);
+  $("#btnHelp").addEventListener("click",()=>$("#helpOverlay").classList.add("show"));
+  $("#helpClose").addEventListener("click",()=>$("#helpOverlay").classList.remove("show"));
+  $("#helpOverlay").addEventListener("click",e=>{if(e.target.id==="helpOverlay")$("#helpOverlay").classList.remove("show");});
   $("#setClose").addEventListener("click",()=>$("#setOverlay").classList.remove("show"));
   $("#setOverlay").addEventListener("click",e=>{if(e.target.id==="setOverlay")$("#setOverlay").classList.remove("show");});
   $("#accSave").addEventListener("click",()=>{const nm=$("#accName").value.trim(),pin=$("#accPin").value.trim();if(!state.session)return;const u=state.users.find(x=>x.name===state.session.name);if(!u)return;if(nm&&nm!==u.name){if(state.users.some(x=>x!==u&&x.name.toLowerCase()===nm.toLowerCase())){toast("Ya existe un usuario con ese nombre");return;}u.name=nm;state.session.name=nm;}if(pin){if(!/^\d{4}$/.test(pin)){toast("El PIN debe ser de 4 dígitos");return;}u.pin=pin;}save();cloudSaveConfig();$("#uName").textContent=state.session.name;toast("Cuenta actualizada");$("#setOverlay").classList.remove("show");});
@@ -977,7 +1032,7 @@ function bind(){
   $("#regSave").addEventListener("click",saveReg);
   $("#regCancel").addEventListener("click",closeReg);
   $("#regOverlay").addEventListener("click",e=>{if(e.target.id==="regOverlay")closeReg();});
-  document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeReg();$("#setOverlay").classList.remove("show");}});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeReg();$("#setOverlay").classList.remove("show");$("#helpOverlay").classList.remove("show");return;}if(!$("#regOverlay").classList.contains("show"))return;const tag=(e.target.tagName||"").toLowerCase(),inField=tag==="input"||tag==="textarea";if(e.key==="Enter"&&!inField&&!$("#regSave").disabled){e.preventDefault();saveReg();return;}if(!inField&&/^[1-5]$/.test(e.key)){const b=document.querySelectorAll("#resultOpts .opt")[+e.key-1];if(b)b.click();}});
 }
 
 /* ---------- capa de nube (Firebase) ---------- */
